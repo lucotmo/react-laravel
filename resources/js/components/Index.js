@@ -8,17 +8,6 @@ export default class App extends Component {
         return (
             <div className="container">
                 <Header />
-                <div className="row justify-content-center">
-                    <div className="col-md-8">
-                        <div className="card">
-                            <div className="card-header">Componente ejemplo</div>
-
-                            <div className="card-body">
-                                Yo soy un Componente ejemplo!
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <Footer />
             </div>
         );
