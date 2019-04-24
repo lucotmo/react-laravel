@@ -1,6 +1,24 @@
 import React, { Component } from 'react';
+import axios from 'axios'
+
 
 export default class Listing extends Component {
+    constructor()
+    {
+        super()
+        this.state = {
+            categories: []
+        }
+    }
+
+    componentDidMount()
+    {
+        axios.get('http://react-laravel.test/category')
+            .then(response=> {
+                this.setState({categories:response.data})
+            })
+    }
+
     render() {
         return (
             <div className="content">
@@ -15,30 +33,19 @@ export default class Listing extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <th scope="row">1</th>
-                        <td>Cat 1</td>
-                        <td>Active</td>
-                        <td>Date</td>
-                        <td>Date</td>
-                        </tr>
-
-                        <tr>
-                        <th scope="row">2</th>
-                        <td>Cat 2</td>
-                        <td>Active</td>
-                        <td>Date</td>
-                        <td>Date</td>
-                        </tr>
-
-                        <tr>
-                        <th scope="row">3</th>
-                        <td>Cat 3</td>
-                        <td>Active</td>
-                        <td>Date</td>
-                        <td>Date</td>
-                        </tr>
-
+                        {
+                            this.state.categories.map(category=> {
+                                return (
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>{category.name}</td>
+                                        <td>{category.active}</td>
+                                        <td>{category.created_at}</td>
+                                        <td>{category.updated_at}</td>
+                                    </tr>
+                                )
+                            })
+                        }
                     </tbody>
                 </table>
             </div>

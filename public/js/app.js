@@ -65905,7 +65905,7 @@ function (_Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "content"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Home"));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is Home"));
     }
   }]);
 
@@ -66157,6 +66157,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Listing; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -66177,18 +66179,36 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var Listing =
 /*#__PURE__*/
 function (_Component) {
   _inherits(Listing, _Component);
 
   function Listing() {
+    var _this;
+
     _classCallCheck(this, Listing);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Listing).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Listing).call(this));
+    _this.state = {
+      categories: []
+    };
+    return _this;
   }
 
   _createClass(Listing, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://react-laravel.test/category').then(function (response) {
+        _this2.setState({
+          categories: response.data
+        });
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -66205,13 +66225,11 @@ function (_Component) {
         scope: "col"
       }, "Created At"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         scope: "col"
-      }, "Updated At"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-        scope: "row"
-      }, "1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Cat 1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Active"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Date"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Date")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-        scope: "row"
-      }, "2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Cat 2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Active"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Date"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Date")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-        scope: "row"
-      }, "3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Cat 3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Active"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Date"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "Date")))));
+      }, "Updated At"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.state.categories.map(function (category) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+          scope: "row"
+        }, "1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, category.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, category.active), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, category.created_at), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, category.updated_at));
+      }))));
     }
   }]);
 
