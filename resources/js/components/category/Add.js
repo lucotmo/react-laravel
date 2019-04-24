@@ -4,7 +4,13 @@ export default class Add extends Component {
     render() {
         return (
             <div className="content">
-                <h1>Add</h1>
+                <form>
+                    <div className="form-group">
+                        <label v-for="category_name">Category Name</label>
+                        <input type="text" className="form-control" id="category_name" aria-describedby="emailHelp" placeholder="Enter Category" />
+                    </div>
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                </form>
             </div>
         );
     }
