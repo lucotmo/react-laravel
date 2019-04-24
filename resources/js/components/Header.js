@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import Home from './Home'
 import About from './About'
+import Category from './category/Index'
 
 export default class App extends Component {
     render() {
@@ -21,6 +22,9 @@ export default class App extends Component {
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/about">About</Link>
                                 </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/category">Category</Link>
+                                </li>
                             </ul>
                             <form className="form-inline my-2 my-lg-0">
                                 <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
@@ -32,6 +36,7 @@ export default class App extends Component {
 
                     <Route exact path="/" component={Home} />
                     <Route path="/about" component={About} />
+                    <Route path="/category" component={Category} />
                 </div>
             </Router>
         );
