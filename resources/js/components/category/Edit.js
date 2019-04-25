@@ -14,7 +14,7 @@ export default class Edit extends Component {
 
     componentDidMount()
     {
-        axios.get('http://react-laravel.test/category/edit/'+this.props.match.params.id)
+        axios.get('http://react-laravel.test/api/category/edit/'+this.props.match.params.id)
             .then(response=> {
                 this.setState({category_name:response.data.name})
             })
@@ -31,7 +31,7 @@ export default class Edit extends Component {
         const Category = {
             category_name: this.state.category_name
         }
-        axios.put('http://react-laravel.test/category/update/'+this.props.match.params.id, Category)
+        axios.put('http://react-laravel.test/api/category/update/'+this.props.match.params.id, Category)
             .then(res=> console.log(res.data))
     }
 
@@ -40,7 +40,7 @@ export default class Edit extends Component {
             <div className="content">
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label>Category Name</label>
+                        <label htmlFor="category_name">Category Name</label>
                         <input
                             type="text"
                             className="form-control"

@@ -19,14 +19,14 @@ export default class Listing extends Component {
 
     componentDidMount()
     {
-        axios.get('http://react-laravel.test/category')
+        axios.get('http://react-laravel.test/api/category')
             .then(response=> {
                 this.setState({categories:response.data.data})
             })
     }
 
     onDelete(category_id) {
-        axios.delete('http://react-laravel.test/category/delete/'+category_id)
+        axios.delete('http://react-laravel.test/api/category/delete/'+category_id)
             .then(response=> {
                 let categories = this.state.categories
                 for(var i=0; i< categories.length; i++)
@@ -43,7 +43,7 @@ export default class Listing extends Component {
     handlePageChange(pageNumber) {
         //console.log(`active page is ${pageNumber}`)
         this.setState({activePage: pageNumber})
-        axios.get('http://react-laravel.test/category?page='+pageNumber)
+        axios.get('http://react-laravel.test/api/category?page='+pageNumber)
             .then(response=> {
                 this.setState({
                     categories:response.data.data,

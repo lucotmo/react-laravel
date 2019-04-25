@@ -37,6 +37,8 @@ export default class App extends Component {
                     <Route exact path="/" component={Home} />
                     <Route path="/about" component={About} />
                     <Route path="/category" component={Category} />
+                    <Route exact path="/category/Add" component={Category} />
+                    <Route exact path="/category/edit/:id" component={Category} />
                 </div>
             </Router>
         );

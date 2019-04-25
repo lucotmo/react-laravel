@@ -23,7 +23,7 @@ export default class Add extends Component {
         const Category = {
             category_name: this.state.category_name
         }
-        axios.post('http://react-laravel.test/category/store', Category)
+        axios.post('http://react-laravel.test/api/category/store', Category)
             .then(res=> console.log(res.data))
     }
 
@@ -32,7 +32,7 @@ export default class Add extends Component {
             <div className="content">
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label>Category Name</label>
+                        <label htmlFor="category_name">Category Name</label>
                         <input
                             type="text"
                             className="form-control"
