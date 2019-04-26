@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
 import Home from './Home'
 import About from './About'
 import Category from './category/Index'
+import Error404 from './Error404'
 
 export default class App extends Component {
     render() {
@@ -33,10 +34,12 @@ export default class App extends Component {
                         </div>
                     </nav>
 
-
-                    <Route exact path="/" component={Home} />
-                    <Route path="/about" component={About} />
-                    <Route path="/category" component={Category} />
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route path="/about" component={About} />
+                        <Route path="/category" component={Category} />
+                        <Route path="/*" component={Error404} />
+                    </Switch>
                 </div>
             </Router>
         );
