@@ -15,8 +15,8 @@ export default class Category extends Component {
                     <Link to="/category/Add" className="btn btn-primary">Add</Link>
 
                     <Route exact path="/category" component={Listing} />
-                    <Route exact path="/category/Add" component={Add} />
-                    <Route exact path="/category/edit/:id" component={Edit} />
+                    <Route path="/category/Add" component={Add} />
+                    <Route path="/category/edit/:id" component={Edit} />
                 </div>
             </div>
         );

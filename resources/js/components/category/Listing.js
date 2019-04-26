@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 import Pagination from 'react-js-pagination'
+import SuccessAlert from './SuccessAlert'
+import ErrorAlert from './ErrorAlert'
 
 export default class Listing extends Component {
     constructor()
@@ -12,7 +14,8 @@ export default class Listing extends Component {
             activePage: 1,
             itemsCountPerPage: 1,
             totalItemsCount: 3,
-            pageRangeDisplayed: 3
+            pageRangeDisplayed: 3,
+            alert_message: ''
         }
         this.handlePageChange = this.handlePageChange.bind(this)
     }
@@ -37,6 +40,10 @@ export default class Listing extends Component {
                         this.setState({categories: categories})
                     }
                 }
+                this.setState({alert_message:"success"})
+            })
+            .catch(error => {
+                this.setState({alert_message: "error"})
             })
     }
 
@@ -57,6 +64,10 @@ export default class Listing extends Component {
     render() {
         return (
             <div className="content">
+                <hr />
+                {this.state.alert_message=="success"?<SuccessAlert />:null}
+                {this.state.alert_message=="error"?<ErrorAlert />:null}
+
                 <table className="table">
                     <thead>
                         <tr>
@@ -72,8 +83,8 @@ export default class Listing extends Component {
                         {
                             this.state.categories.map(category=> {
                                 return (
-                                    <tr>
-                                        <th scope="row">1</th>
+                                    <tr key={category.id}>
+                                        <th scope="row">{category.id}</th>
                                         <td>{category.name}</td>
                                         <td>{category.active==1 ? ('Active') : ('Inactive')}</td>
                                         <td>{category.created_at}</td>

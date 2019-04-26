@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import SuccessAlert from './SuccessAlert'
+import ErrorAlert from './ErrorAlert'
 
 export default class Edit extends Component {
 
@@ -8,7 +10,8 @@ export default class Edit extends Component {
         this.onChangeCategoryName = this.onChangeCategoryName.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
         this.state = {
-            category_name: ''
+            category_name: '',
+            alert_message: ''
         }
     }
 
@@ -32,12 +35,23 @@ export default class Edit extends Component {
             category_name: this.state.category_name
         }
         axios.put('http://react-laravel.test/api/category/update/'+this.props.match.params.id, Category)
-            .then(res=> console.log(res.data))
+            .then(res=> {
+                this.setState({alert_message:"success"})
+            })
+            .catch(error => {
+                this.setState({alert_message: "error"})
+            })
     }
 
     render() {
         return (
             <div className="content">
+                <hr />
+
+                {this.state.alert_message=="success"?<SuccessAlert />:null}
+
+                {this.state.alert_message=="error"?<ErrorAlert />:null}
+
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label htmlFor="category_name">Category Name</label>
