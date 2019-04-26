@@ -66261,7 +66261,11 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), this.state.alert_message == "success" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SuccessAlert__WEBPACK_IMPORTED_MODULE_2__["default"], null) : null, this.state.alert_message == "error" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ErrorAlert__WEBPACK_IMPORTED_MODULE_3__["default"], null) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), this.state.alert_message == "success" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SuccessAlert__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        message: "Category added successfully."
+      }) : null, this.state.alert_message == "error" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ErrorAlert__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        message: "Error occured while adding the Category."
+      }) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.onSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
@@ -66387,7 +66391,11 @@ function (_Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "content"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), this.state.alert_message == "success" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SuccessAlert__WEBPACK_IMPORTED_MODULE_2__["default"], null) : null, this.state.alert_message == "error" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ErrorAlert__WEBPACK_IMPORTED_MODULE_3__["default"], null) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), this.state.alert_message == "success" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SuccessAlert__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        message: "Category update successfully."
+      }) : null, this.state.alert_message == "error" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ErrorAlert__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        message: "Error occured while updating the Category."
+      }) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.onSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-group"
@@ -66451,10 +66459,10 @@ var ErrorAlert =
 function (_Component) {
   _inherits(ErrorAlert, _Component);
 
-  function ErrorAlert() {
+  function ErrorAlert(props) {
     _classCallCheck(this, ErrorAlert);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ErrorAlert).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(ErrorAlert).call(this, props));
   }
 
   _createClass(ErrorAlert, [{
@@ -66463,7 +66471,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "alert alert-danger",
         role: "alert"
-      }, "Error occured.");
+      }, this.props.message);
     }
   }]);
 
@@ -66685,7 +66693,11 @@ function (_Component) {
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "content"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), this.state.alert_message == "success" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SuccessAlert__WEBPACK_IMPORTED_MODULE_4__["default"], null) : null, this.state.alert_message == "error" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ErrorAlert__WEBPACK_IMPORTED_MODULE_5__["default"], null) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), this.state.alert_message == "success" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SuccessAlert__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        message: "Category deleted successfully."
+      }) : null, this.state.alert_message == "error" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ErrorAlert__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        message: "Error occured while deleting the Category."
+      }) : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "table"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         scope: "col"
@@ -66768,10 +66780,10 @@ var SuccessAlert =
 function (_Component) {
   _inherits(SuccessAlert, _Component);
 
-  function SuccessAlert() {
+  function SuccessAlert(props) {
     _classCallCheck(this, SuccessAlert);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(SuccessAlert).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(SuccessAlert).call(this, props));
   }
 
   _createClass(SuccessAlert, [{
@@ -66780,7 +66792,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "alert alert-success",
         role: "alert"
-      }, "Record created/updated/deleted successfully.");
+      }, this.props.message);
     }
   }]);
 

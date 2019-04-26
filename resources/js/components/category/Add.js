@@ -40,9 +40,8 @@ export default class Add extends Component {
             <div>
                 <hr />
 
-                {this.state.alert_message=="success"?<SuccessAlert />:null}
-
-                {this.state.alert_message=="error"?<ErrorAlert />:null}
+                {this.state.alert_message=="success"?<SuccessAlert message={"Category added successfully."} />:null}
+                {this.state.alert_message=="error"?<ErrorAlert message={"Error occured while adding the Category."} />:null}
 
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
