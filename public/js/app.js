@@ -65795,6 +65795,7 @@ __webpack_require__(/*! ./components/Index */ "./resources/js/components/Index.j
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 
 try {
+  window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js");
   window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
   __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
@@ -66159,7 +66160,7 @@ function (_Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "content"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Esto es Home"));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "This is Home"));
     }
   }]);
 
